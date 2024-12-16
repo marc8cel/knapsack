@@ -1,0 +1,14 @@
+{
+  "num_items": 2,
+  "capacity": 1,
+  "items": [
+    {
+      "value": 0,
+      "weight": 1
+    },
+    {
+      "value": 1,
+      "weight": 1
+    }
+  ]
+}
