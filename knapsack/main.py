@@ -33,7 +33,8 @@ sys.dont_write_bytecode = True
 
 # Directories setup (using relative paths for compatibility)
 root_folder_path = os.getcwd()
-setup_folder_path = os.path.join(root_folder_path, 'setup')  # Setup folder
+setup_folder_path = root_folder_path + '\\setup'
+# setup_folder_path = os.path.join(root_folder_path, 'setup')  # Setup folder
 outputs_folder_path = os.path.abspath(os.path.join(root_folder_path, '..', 'outputs')) # Outputs folder
 
 # Ensure the output directory exists
@@ -42,7 +43,8 @@ if not os.path.exists(outputs_folder_path):
 
 # Solver parameters
 solvername = 'glpk'  # Solver name (using GLPK as default)
-solver_path = os.path.join(setup_folder_path, "winglpk-4.65", "glpk-4.65", "w64", "glpsol")
+#solver_path = os.path.join(setup_folder_path, "winglpk-4.65", "glpk-4.65", "w64", "glpsol")
+solver_path = setup_folder_path + "\\winglpk-4.65\\glpk-4.65\\w64\\glpsol"
 
 
 # -----------------------------------------------
@@ -97,8 +99,7 @@ def main(input_file):
     model.constraint = Constraint(rule=capacity_constraint_rule)
 
     # Solve the model using the specified solver
-    opt = SolverFactory(solvername, executable=solver_path, validate=False)
-
+    opt = SolverFactory(solvername, executable=solver_path,set_executable=False)
     results = opt.solve(model)
 
     # Extract selected items

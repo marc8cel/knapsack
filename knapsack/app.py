@@ -58,7 +58,7 @@ items = []
 for i in range(num_items):
     col1, col2 = st.columns(2)
     with col1:
-        value = st.number_input(f"Valeur de l'objet {i + 1}", key=f"value_{i}", min_value=0, step=1, format="%d")
+        value = st.number_input(f"Valeur de l'objet {i + 1}", key=f"value_{i}", min_value=1, step=1, format="%d")
     with col2:
         weight = st.number_input(f"Poids de l'objet {i + 1}", key=f"weight_{i}", min_value=1, step=1, format="%d")
     items.append({"value": value, "weight": weight})
@@ -122,4 +122,4 @@ if st.button("Lancer l'optimisation"):
         except FileNotFoundError:
             st.error("Le fichier de résultats n'a pas été trouvé. Assurez-vous que le script d'optimisation s'est exécuté correctement.")
         except Exception as e:
-            st.error(f"Une erreur inattendue est survenue : {e}")
+            st.error(f"Une erreur inattendue est survenue : {e}") 
