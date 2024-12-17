@@ -43,7 +43,6 @@ if not os.path.exists(outputs_folder_path):
 solvername = 'glpk'  # Solver name (using GLPK as default)
 solver_path = "/usr/bin/glpsol"
 
-
 # -----------------------------------------------
 # Main Optimization Function
 # -----------------------------------------------
@@ -96,7 +95,8 @@ def main(input_file):
     model.constraint = Constraint(rule=capacity_constraint_rule)
 
     # Solve the model using the specified solver
-    opt = SolverFactory(solvername, executable=solver_path,set_executable=False)
+    opt = SolverFactory(solvername, executable=solver_path, validate=False)
+
     results = opt.solve(model)
 
     # Extract selected items
